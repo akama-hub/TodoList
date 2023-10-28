@@ -1,0 +1,6 @@
+Django == 4.2.6
+django-cors-headers == 4.3.0
+django-filter == 23.3
+djangorestframework == 3.14.0
+uWSGI == 2.0.22
+requests == 2.25.1

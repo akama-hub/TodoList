@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  frontend-app:
+    # docker-compose.ymlを実行し、ビルドされるときのpath
+    build: ./frontend-app
+    
+    # マウントする設定ファイルのパスを指定 (ホスト側のパス:コンテナ側のパス)
+    volumes:
+      - ./frontend-app:/code/frontend-app
+    # command: bash /code/angular_start.sh
+    # env_file:
+    #   - ./configs/dev/.env
+    ports:
+      - "4200:4200"
+    tty: true
+
+  backend-app:
+    build: ./backend-app
+    # command: bash /code/configs/wsgi_env/django_init.sh
+    volumes:
+      # - ./configs/dev:/code/configs
+      - ./:/code/backend
+      # - ./static:/code/static
+      # - ./media:/code/media
+    restart: always
+    # ports:
+    #   - "8000:8000"
+    # env_file:
+    #   - ./configs/dev/.env
+    tty: true
