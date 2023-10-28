@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend-app": {
+    "frontend_app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/frontend-app",
+            "outputPath": "dist/frontend_app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -58,12 +58,16 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "frontend_app:build",
+            "proxyConfig": "src/environments/proxy.config.json"
+          },
           "configurations": {
             "production": {
-              "browserTarget": "frontend-app:build:production"
+              "browserTarget": "frontend_app:build:production"
             },
             "development": {
-              "browserTarget": "frontend-app:build:development"
+              "browserTarget": "frontend_app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontend-app:build"
+            "browserTarget": "frontend_app:build"
           }
         },
         "test": {
