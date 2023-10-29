@@ -1,4 +1,10 @@
+# Django × Angular で Todo アプリを作ってみる
+以下、勉強のアウトプット用にメモを残していく
+
+#  目次
+
 - [Django × Angular で Todo アプリを作ってみる](#django--angular-で-todo-アプリを作ってみる)
+- [目次](#目次)
   - [Django の概要](#django-の概要)
     - [wsgi.py](#wsgipy)
     - [settings.py](#settingspy)
@@ -21,10 +27,6 @@
   - [1-2-3. Class Based View 継承を使うメリット](#1-2-3-class-based-view-継承を使うメリット)
     - [1-2-4. 汎用ビューの種類と特徴（簡易版）](#1-2-4-汎用ビューの種類と特徴簡易版)
     - [1-2-5. ミックスイン](#1-2-5-ミックスイン)
-
-
-# Django × Angular で Todo アプリを作ってみる
-以下、勉強のアウトプット用にメモを残していく
 
 ## Django の概要
 
