@@ -48,12 +48,9 @@
 + AUTH_PASSWORD_VALIDATORS: パスワードのバリエーション管理
 
 ## Django のインストール
-``` 
-$ pip install django
-$ pip install djangorestframework
-$ pip install django-filter
-$ pip install django-cors-headers
-```
+pyrenv × pipenv で環境構築
+
+```$ bash mk_env.sh```を実行する
 
 ## プロジェクトの作成
 ```
