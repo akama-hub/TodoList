@@ -57,7 +57,8 @@ angular.json の　architect の serve json にオプションを追加する
 + service を作成し、HttpClient通信を実装する
 
 
-###　4. Django で Angular からのアクセスを許可する
+### 4. Django で Angular からのアクセスを許可する
+
 [参考](https://qiita.com/shun198/items/9ebf19d8fd2c412396dd)
 
 このままだと、以下のようなエラーが出るので
