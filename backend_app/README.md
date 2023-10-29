@@ -54,8 +54,11 @@ pyrenv × pipenv で環境構築
 
 ## プロジェクトの作成
 ```
-$ python3 -m django startproject プロジェクト名
+$ python3 -m django startproject プロジェクト名 .
 ```
+
+最後に . をつけることで余計なフォルダの作成を防げる（自分で作業フォルダを作っているから）
+
 
 ## アプリの作成
 ``` 
@@ -64,6 +67,42 @@ $ python3 manage.py startapp アプリ名
 ```
 
 ## データベースマイグレーション
+settings.pyファイルに設定を加えていく
+
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'todoList'  # 追加
+]
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR, 'templates'], # 追加
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+```
+
+templates フォルダでhtml ファイルを管理していく
+
+アプリとプロジェクトでのつなぎこみようにapp フォルダの中にもurls.pyファイルを作成する
+
 ```
 python3 manage.py migrate
 ```
@@ -167,6 +206,8 @@ admin.py の更新
 
 変更箇所：MyProject\test\admin.py (「# Register your models here.」を目印)
 
+これで管理画面から編集できるようになる
+
 
 
 
@@ -242,6 +283,14 @@ class InfopageView(TemplateBaseView):
 ```
 
 ### 1-2-4. 汎用ビューの種類と特徴（簡易版）
+汎用ビューとCRUDの関係
++ Create: CreateView
++ Read: ListView, DetailView
++ Update: UpdateView
++ Delete: DeleteView
+
+以下、それぞれ簡単にまとめる
+
 + TemplateView
   + HTML ファイルのページ表示用
   + template_name に表示させたいファイル名をtemplateディレクトリから選択
