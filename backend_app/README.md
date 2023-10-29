@@ -84,6 +84,7 @@ python3 manage.py runserver 0.0.0.0:4000
 [参照：Django のモデルについて](https://note.com/saito_pythonista/n/n920bbc48c8fd)
 
 HTMLファイルに埋め込むためのデータをDB（データベース）とやり取りし、ビュー（views.py）に返す
+
 [1-2. そもそもビューとは・・・](###-1-2.-そもそもビューとは・・・)
 
 ![](https://assets.st-note.com/production/uploads/images/47823670/picture_pc_bdbcecb609fdc56619fd3bbf524d814e.jpg?width=800)
