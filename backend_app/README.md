@@ -1,6 +1,8 @@
 # Django × Angular で Todo アプリを作ってみる
 以下、勉強のアウトプット用にメモを残していく
 
+[参考](https://www.bezkoder.com/django-angular-13-crud/)
+
 #  目次
 
 - [Django × Angular で Todo アプリを作ってみる](#django--angular-で-todo-アプリを作ってみる)
@@ -27,6 +29,7 @@
   - [1-2-3. Class Based View 継承を使うメリット](#1-2-3-class-based-view-継承を使うメリット)
     - [1-2-4. 汎用ビューの種類と特徴（簡易版）](#1-2-4-汎用ビューの種類と特徴簡易版)
     - [1-2-5. ミックスイン](#1-2-5-ミックスイン)
+  - [2. 作成したデータテーブルの反映](#2-作成したデータテーブルの反映)
 
 ## Django の概要
 
@@ -421,3 +424,5 @@ class Mypage(UserPassesTestMixin, DetailView):    #Mixin記述
        # 戻り値がTrueの時のみ許可
        return (login_user == mypage_owner)         
 ```
+
+## 2. 作成したデータテーブルの反映

@@ -29,6 +29,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Angular と Django の連携
 
+[参考](https://www.bezkoder.com/django-angular-13-crud/)
+
+![](https://www.bezkoder.com/wp-content/uploads/2021/11/django-angular-13-crud-example-rest-framework-architecture.png)
+
 ## Angular 側
 
 ### 1. src/environment/proxy.config.json を作成する

@@ -1,7 +1,6 @@
 from django.db import models
 
-# Create your models here.
-
+# データテーブルを作る
 class todoModel(models.Model):
     # フィールドタイプ
     # https://qiita.com/KeAt/items/55fdedc8cac7c6852043
