@@ -22,7 +22,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "strictPropertyInitialization": false // プロパティ初期化の確認をしない
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -25,9 +25,6 @@ SECRET_KEY = 'django-insecure-*5pu28ddk#75(%=@u*8m6uwu2x-nks@rbfxzz_%*&3eg*xf4ob
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -77,13 +74,28 @@ WSGI_APPLICATION = 'backend_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
+if DEBUG:
+    # 開発ではSQliteを使用
+    DATABASES = {
+        # デフォルトはsqlite
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        # postgreSQL
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'todo-db',
+            'USER': 'postgres',
+            'PASSWORD': 'hoge',
+            'HOST': '127.0.0.1',
+            'PORT': '4000'
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -107,9 +119,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'ja'
+LANGUAGE_CODE = 'ja-JP'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -121,6 +133,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+CORS_ORIGIN_ALLOW_ALL = False   # すべてのオリジンを許可するのはセキュリティ面で良くない
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8081',
+)
 CORS_ALLOWED_HOSTS = [
     # Angular からのアクセス
     'http://localhost:4200'  

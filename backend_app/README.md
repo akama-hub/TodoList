@@ -3,33 +3,31 @@
 
 [参考](https://www.bezkoder.com/django-angular-13-crud/)
 
-#  目次
+## 環境構築
+backend では Django フレームワークを使用するので、pyenv + pipenv でバージョン管理する。
+初回 clone 時は、以下のコマンドを実行して、pyenv, pipenv をインストールする。
 
-- [Django × Angular で Todo アプリを作ってみる](#django--angular-で-todo-アプリを作ってみる)
-- [目次](#目次)
-  - [Django の概要](#django-の概要)
-    - [wsgi.py](#wsgipy)
-    - [settings.py](#settingspy)
-  - [Django のインストール](#django-のインストール)
-  - [プロジェクトの作成](#プロジェクトの作成)
-  - [アプリの作成](#アプリの作成)
-  - [データベースマイグレーション](#データベースマイグレーション)
-  - [アプリケーションの実行](#アプリケーションの実行)
-- [Django で Database を作成する流れ](#django-で-database-を作成する流れ)
-  - [1. model に作成したいデータテーブルの作成](#1-model-に作成したいデータテーブルの作成)
-    - [1-1-1. そもそもモデルとは・・・](#1-1-1-そもそもモデルとは)
-    - [1-1-2. モデルの作成](#1-1-2-モデルの作成)
-    - [1-1-3. settings.pyを更新](#1-1-3-settingspyを更新)
-  - [1-1-4. model から migrations ( 更新差分 ) を作成](#1-1-4-model-から-migrations--更新差分--を作成)
-  - [1-1-5. migrations を元に Database を作成・更新](#1-1-5-migrations-を元に-database-を作成更新)
-  - [1-1-6. admin ページへのアクセス手順](#1-1-6-admin-ページへのアクセス手順)
-    - [1-2. そもそもビューとは・・・](#1-2-そもそもビューとは)
-  - [1-2-1. Function Based View](#1-2-1-function-based-view)
-  - [1-2-2. Class Based View](#1-2-2-class-based-view)
-  - [1-2-3. Class Based View 継承を使うメリット](#1-2-3-class-based-view-継承を使うメリット)
-    - [1-2-4. 汎用ビューの種類と特徴（簡易版）](#1-2-4-汎用ビューの種類と特徴簡易版)
-    - [1-2-5. ミックスイン](#1-2-5-ミックスイン)
-  - [2. 作成したデータテーブルの反映](#2-作成したデータテーブルの反映)
+``` 
+# pyenv pipenv のインストール
+bash mk_env.sh
+
+# pifile.lockを元に仮想環境構築
+pipenv sync
+
+# 仮想環境に入る
+pipenv shell
+```
+
+※pipenv の基本的な使い方は、以下の3つ
+
+1. pipfile.lock を元にライブラリをインストール
+```pipenv sync```
+
+2. 作成した仮想環境に入る
+```pipenv shell```
+
+3. 仮想環境を更新した場合に、pipfile.lockを更新する
+```pipenv update```
 
 ## Django の概要
 
@@ -104,7 +102,7 @@ TEMPLATES = [
 
 templates フォルダでhtml ファイルを管理していく
 
-アプリとプロジェクトでのつなぎこみようにapp フォルダの中にもurls.pyファイルを作成する
+アプリとプロジェクトでのつなぎこみように app フォルダの中にも urls.py ファイルを作成する
 
 ```
 python3 manage.py migrate
